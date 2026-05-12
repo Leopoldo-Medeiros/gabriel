@@ -71,7 +71,7 @@ const About: React.FC = () => {
                 Dedicação e Experiência ao Seu Alcance
               </h2>
               <p className="text-muted text-lg leading-relaxed mb-6">
-                Com mais de uma década de experiência clínica, o Dr. Gabriel Lechenakoski combina conhecimento técnico avançado com uma abordagem humanizada.
+                Com 5 anos de experiência clínica, o Dr. Gabriel Lechenakoski combina conhecimento técnico avançado com uma abordagem humanizada.
               </p>
               
               <div className="space-y-6 mb-8">
