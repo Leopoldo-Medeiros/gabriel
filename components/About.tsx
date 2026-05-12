@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { SPECIALTIES } from '../constants';
 import { User, Award } from 'lucide-react';
 
-const About: React.FC = () => {
+const About: FC = () => {
   return (
     <>
       {/* Specialties Section */}
