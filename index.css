@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-dark bg-light antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-dark;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-dark text-white px-8 py-3 rounded-full font-medium transition-all hover:bg-primary-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-8 py-3 rounded-full font-medium transition-all hover:bg-primary hover:text-white;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold mb-4 text-center relative pb-4;
+  }
+
+  .section-subtitle {
+    @apply text-accent uppercase font-semibold tracking-wider text-sm mb-2 text-center block;
+  }
+}
+
+/* Swiper Custom Styles */
+.swiper-pagination-bullet {
+  background: #cbd5e1 !important;
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1C2331 !important;
+  width: 30px !important;
+  border-radius: 5px !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #1C2331 !important;
+}
+
+
