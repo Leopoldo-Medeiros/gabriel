@@ -1,13 +1,35 @@
 import { WHATSAPP_LINK } from '../constants';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Ear, Mic } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative bg-secondary pt-24 pb-20 lg:pt-32 lg:pb-28">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8 text-center lg:text-left">
+    <section id="home" className="relative bg-secondary pt-16 lg:pt-32 pb-0 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden"
+      >
+        <svg className="w-full h-full text-primary/10" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="hero-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" />
+        </svg>
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 55% 75% at 75% 55%, rgba(226,149,120,0.18) 0%, rgba(237,246,249,0.55) 45%, transparent 80%)',
+        }}
+      />
+
+      <div className="container mx-auto px-6 relative">
+        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 items-end">
+          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1 lg:self-center lg:-mt-12">
             <span className="section-subtitle !text-left">Bem-vindo à sua nova voz</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight">
               Fonoaudiologia de Excelência para Todas as Idades
@@ -16,38 +38,46 @@ const Hero: React.FC = () => {
               Transforme sua comunicação e qualidade de vida com tratamentos personalizados e baseados em evidências científicas.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary group"
+                className="inline-flex items-center justify-center bg-primary text-white px-5 py-2 rounded-full text-sm font-medium transition-all hover:bg-primary-dark shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
+                aria-label="Agendar avaliação pelo WhatsApp"
               >
                 Agende sua Avaliação
-                <ArrowRight className="inline-block ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="inline-block ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#especialidades"
-                className="btn-outline"
+                className="inline-flex items-center justify-center border-2 border-primary text-primary px-5 py-2 rounded-full text-sm font-medium transition-all hover:bg-primary hover:text-white"
               >
                 Nossos Serviços
               </a>
             </div>
           </div>
 
-          {/* Image */}
-          <div className="relative hidden lg:block">
-            <div className="relative z-10 rounded-3xl shadow-2xl overflow-hidden aspect-[4/3]">
-              <img 
-                src="/images/Gabriel.jpeg" 
-                alt="Dr. Gabriel Lechenakoski - Fonoaudiólogo" 
-                className="w-full h-full object-cover"
+          <div className="relative order-1 lg:order-2">
+            <div className="relative max-w-xl mx-auto lg:max-w-none lg:-mt-24 lg:mb-0 xl:-mt-32 xl:-mr-8">
+              <div className="absolute top-4 left-1/4 lg:top-8 lg:left-[18%] z-20 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
+                <Ear size={20} className="text-primary" aria-label="Audição" />
+              </div>
+
+              <div className="absolute top-1/2 right-2 lg:-right-2 -translate-y-1/2 z-20 w-14 h-14 bg-accent rounded-2xl shadow-xl flex items-center justify-center rotate-6">
+                <Mic size={22} className="text-white" aria-label="Voz" />
+              </div>
+
+              <img
+                src="/images/Gabriel2.png"
+                alt="Dr. Gabriel Lechenakoski - Fonoaudiólogo"
+                className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+                width={800}
+                height={1000}
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-primary/10 rounded-full -z-0"></div>
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-accent/10 rounded-full -z-0"></div>
-            <div className="absolute bottom-1/4 -right-12 w-16 h-16 border-4 border-primary rounded-full -z-0"></div>
           </div>
         </div>
       </div>

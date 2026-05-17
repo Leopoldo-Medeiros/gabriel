@@ -4,7 +4,7 @@ export const CONTACT_INFO = {
   phone: "(41) 98445-1173",
   address: "Rua das Flores, 123 - Curitiba/PR",
   addressFull: "Rua das Flores, 123 Centro, Curitiba - PR",
-  email: "contato@lechenakoski.com.br",
+  email: "gabriellechenakoski@gmail.com",
   hours: {
     weekday: "Seg - Sex: 8:30 - 18:00",
     saturday: "08:30 - 12:00",
@@ -53,18 +53,18 @@ export const TESTIMONIALS = [
 
 export const SPECIALTIES = [
   {
-    title: "Dislexia",
-    description: "Avaliação e tratamento de dificuldades de leitura e escrita",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center"
-  },
-  {
-    title: "Processamento Auditivo Central",
-    description: "Avaliação e tratamento de dificuldades no processamento auditivo",
+    title: "PAC",
+    description: "Processamento Auditivo Central — avaliação e tratamento de dificuldades no processamento auditivo",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center"
   },
   {
-    title: "Linguagem",
-    description: "Desenvolvimento da comunicação e expressão verbal",
+    title: "Linguagem oral/escrita",
+    description: "Desenvolvimento da comunicação, leitura e escrita em todas as fases da vida",
     image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300"
+  },
+  {
+    title: "Voz",
+    description: "Avaliação e tratamento de questões vocais para profissionais e pacientes em geral",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center"
   }
 ];

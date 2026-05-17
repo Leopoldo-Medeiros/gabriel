@@ -1,4 +1,3 @@
-import React from 'react';
 import { Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../constants';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -49,17 +48,15 @@ const Testimonials: React.FC = () => {
                     "{t.text}"
                   </p>
                   
-                  <div className="flex items-center gap-4 pt-6 border-t border-[#253B5F]/10">
+                  <div className="flex items-center gap-4 pt-6 border-t border-dark/10">
                     <div className="w-10 h-10 rounded-full bg-secondary text-primary font-bold flex items-center justify-center text-sm">
                       {t.author.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-bold text-dark text-base">{t.author}</h4>
-                      {t.role && (
-                        <p className="text-xs text-muted uppercase tracking-wide font-medium">
-                          {t.role}
-                        </p>
-                      )}
+                      <p className="font-bold text-dark text-base">{t.author}</p>
+                      <p className="text-xs text-muted uppercase tracking-wide font-medium">
+                        {t.role}
+                      </p>
                     </div>
                   </div>
                 </div>
