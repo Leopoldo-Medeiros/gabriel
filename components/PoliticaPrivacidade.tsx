@@ -1,17 +1,23 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, Lock, Eye, Database } from 'lucide-react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const PoliticaPrivacidade: React.FC = () => {
+  usePageMeta({
+    title: 'Política de Privacidade | Dr. Gabriel Lechenakoski',
+    description: 'Política de Privacidade do site do Dr. Gabriel Lechenakoski em conformidade com a LGPD.',
+    canonical: 'https://lechenakoski.com.br/politica-privacidade',
+  });
   return (
-    <div className="min-h-screen bg-[#253B5F]/5 py-12">
+    <main className="min-h-screen bg-dark/5 py-12">
       <div className="container mx-auto px-6 max-w-4xl">
-        <a 
-          href="/" 
+        <Link
+          to="/"
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
           Voltar para página inicial
-        </a>
+        </Link>
         
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="flex items-center gap-3 mb-8">
@@ -19,10 +25,10 @@ const PoliticaPrivacidade: React.FC = () => {
             <h1 className="text-3xl font-bold text-dark">Política de Privacidade</h1>
           </div>
           
-          <div className="space-y-6 text-[#253B5F]/80">
-            <section className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-              <p className="text-sm font-semibold text-blue-800">
-                Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) - 
+          <div className="space-y-6 text-dark/80">
+            <section className="bg-secondary p-4 rounded-lg border-l-4 border-primary">
+              <p className="text-sm font-semibold text-primary">
+                Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) -
                 Lei nº 13.709/2018 e regulamentos aplicáveis à área da saúde.
               </p>
             </section>
@@ -35,7 +41,7 @@ const PoliticaPrivacidade: React.FC = () => {
               <p className="leading-relaxed mb-3">
                 Coletamos e tratamos os seguintes dados pessoais:
               </p>
-              <div className="bg-[#253B5F]/5 p-4 rounded-lg space-y-2">
+              <div className="bg-dark/5 p-4 rounded-lg space-y-2 text-dark/80">
                 <p><strong>Dados de identificação:</strong> Nome completo, CPF, data de nascimento</p>
                 <p><strong>Dados de contato:</strong> Telefone, e-mail, endereço</p>
                 <p><strong>Dados de saúde:</strong> Histórico clínico, queixas, diagnósticos, evoluções terapêuticas</p>
@@ -86,8 +92,8 @@ const PoliticaPrivacidade: React.FC = () => {
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Com profissionais da equipe clínica (com consentimento)</li>
                 <li>Com médicos e outros profissionais de saúde (com autorização)</li>
-                <li>Com autoridades de saúde (determinação legal/c judicial)</li>
-                <li>Com planos de saúde (quanto necessário para autorizações)</li>
+                <li>Com autoridades de saúde (determinação legal ou judicial)</li>
+                <li>Com planos de saúde (quando necessário para autorizações)</li>
                 <li>Com sistemas de gestão clínica (processamento seguro)</li>
               </ul>
             </section>
@@ -132,9 +138,9 @@ const PoliticaPrivacidade: React.FC = () => {
 
             <section>
               <h2 className="text-xl font-semibold text-dark mb-3">8. Encarregado de Proteção de Dados (DPO)</h2>
-              <div className="bg-[#253B5F]/5 p-4 rounded-lg">
+              <div className="bg-dark/5 p-4 rounded-lg">
                 <p className="mb-2"><strong>Encarregado:</strong> Dr. Gabriel Lechenakoski</p>
-                <p className="mb-2"><strong>E-mail:</strong> dpo@lechenakoski.com.br</p>
+                <p className="mb-2"><strong>E-mail:</strong> gabriellechenakoski@gmail.com</p>
                 <p><strong>Telefone:</strong> (41) 98445-1173</p>
               </div>
             </section>
@@ -147,15 +153,15 @@ const PoliticaPrivacidade: React.FC = () => {
               </p>
             </section>
 
-            <div className="mt-8 pt-6 border-t border-[#253B5F]/10">
-              <p className="text-sm text-[#253B5F]/60">
+            <div className="mt-8 pt-6 border-t border-dark/10">
+              <p className="text-sm text-dark/60">
                 <strong>Data da última atualização:</strong> 15 de março de 2026
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

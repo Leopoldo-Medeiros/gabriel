@@ -1,22 +1,28 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const TermosDeUso: React.FC = () => {
+  usePageMeta({
+    title: 'Termos de Uso | Dr. Gabriel Lechenakoski',
+    description: 'Termos de uso do site do Dr. Gabriel Lechenakoski - Fonoaudiólogo em Curitiba.',
+    canonical: 'https://lechenakoski.com.br/termos-de-uso',
+  });
   return (
-    <div className="min-h-screen bg-[#253B5F]/5 py-12">
+    <main className="min-h-screen bg-dark/5 py-12">
       <div className="container mx-auto px-6 max-w-4xl">
-        <a 
-          href="/" 
+        <Link
+          to="/"
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
           Voltar para página inicial
-        </a>
+        </Link>
         
         <div className="bg-white rounded-lg shadow-lg p-8">
           <h1 className="text-3xl font-bold text-dark mb-8">Termos de Uso</h1>
           
-          <div className="space-y-6 text-[#253B5F]/80">
+          <div className="space-y-6 text-dark/80">
             <section>
               <h2 className="text-xl font-semibold text-dark mb-3">1. Objetivo do Site</h2>
               <p className="leading-relaxed">
@@ -54,8 +60,8 @@ const TermosDeUso: React.FC = () => {
             <section>
               <h2 className="text-xl font-semibold text-dark mb-3">4. Uso Adequado</h2>
               <p className="leading-relaxed mb-3">
-                O usuário compromete-se a utilizar este site de maneira ética e legal, 
-                abstenendo-se de:
+                O usuário compromete-se a utilizar este site de maneira ética e legal,
+                abstendo-se de:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Realizar atividades ilícitas ou fraudulentas</li>
@@ -103,15 +109,15 @@ const TermosDeUso: React.FC = () => {
               </p>
             </section>
 
-            <div className="mt-8 pt-6 border-t border-[#253B5F]/10">
-              <p className="text-sm text-[#253B5F]/60">
+            <div className="mt-8 pt-6 border-t border-dark/10">
+              <p className="text-sm text-dark/60">
                 <strong>Data da última atualização:</strong> 15 de março de 2026
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

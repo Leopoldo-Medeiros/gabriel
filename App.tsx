@@ -6,14 +6,20 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import TermosDeUso from './components/TermosDeUso';
 import PoliticaPrivacidade from './components/PoliticaPrivacidade';
+import { usePageMeta } from './hooks/usePageMeta';
 
 function HomePage() {
+  usePageMeta({
+    title: 'Dr. Gabriel Lechenakoski - Fonoaudiólogo em Curitiba | Dislexia, PAC e Linguagem',
+    description: 'Fonoaudiólogo em Curitiba especializado em Dislexia, Processamento Auditivo Central (PAC) e Linguagem. Atendimento humanizado para crianças, adultos e idosos.',
+    canonical: 'https://lechenakoski.com.br/',
+  });
   return (
-    <>
+    <main>
       <Hero />
       <About />
       <Testimonials />
-    </>
+    </main>
   );
 }
 
