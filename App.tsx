@@ -6,6 +6,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import TermosDeUso from './components/TermosDeUso';
 import PoliticaPrivacidade from './components/PoliticaPrivacidade';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import { usePageMeta } from './hooks/usePageMeta';
 
 function HomePage() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
         </Routes>
         <Footer />
+        <WhatsAppFloat />
       </div>
     </Router>
   );
