@@ -59,19 +59,19 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="relative order-1 lg:order-2">
-            <div className="relative max-w-xl mx-auto lg:max-w-none lg:-mt-24 lg:mb-0 xl:-mt-32 xl:-mr-8">
-              <div className="absolute top-4 left-1/4 lg:top-8 lg:left-[18%] z-20 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
+            <div className="relative max-w-none sm:max-w-lg mx-auto lg:max-w-none lg:-mt-24 lg:mb-0 xl:-mt-32 xl:-mr-8">
+              <div className="hidden lg:flex absolute lg:top-8 lg:left-[18%] z-20 w-12 h-12 bg-white rounded-full shadow-xl items-center justify-center">
                 <Ear size={20} className="text-primary" aria-label="Audição" />
               </div>
 
-              <div className="absolute top-1/2 right-2 lg:-right-2 -translate-y-1/2 z-20 w-14 h-14 bg-accent rounded-2xl shadow-xl flex items-center justify-center rotate-6">
+              <div className="hidden lg:flex absolute top-1/2 lg:-right-2 -translate-y-1/2 z-20 w-14 h-14 bg-accent rounded-2xl shadow-xl items-center justify-center rotate-6">
                 <Mic size={22} className="text-white" aria-label="Voz" />
               </div>
 
               <img
                 src="/images/Gabriel2.png"
                 alt="Dr. Gabriel Lechenakoski - Fonoaudiólogo"
-                className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+                className="relative z-10 w-full h-auto object-contain drop-shadow-2xl scale-125 sm:scale-110 lg:scale-100 origin-bottom"
                 width={800}
                 height={1000}
                 fetchPriority="high"
