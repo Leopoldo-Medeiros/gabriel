@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,13 +7,15 @@ import Footer from './components/Footer';
 import TermosDeUso from './components/TermosDeUso';
 import PoliticaPrivacidade from './components/PoliticaPrivacidade';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import { LanguageProvider, useTranslation } from './i18n/LanguageContext';
 import { usePageMeta } from './hooks/usePageMeta';
 
 function HomePage() {
+  const t = useTranslation();
   usePageMeta({
-    title: 'Dr. Gabriel Lechenakoski - Fonoaudiólogo em Curitiba | Dislexia, PAC e Linguagem',
-    description: 'Fonoaudiólogo em Curitiba especializado em Dislexia, Processamento Auditivo Central (PAC) e Linguagem. Atendimento humanizado para crianças, adultos e idosos.',
-    canonical: 'https://lechenakoski.com.br/',
+    title: t.meta.home.title,
+    description: t.meta.home.description,
+    path: '',
   });
   return (
     <main>
@@ -24,19 +26,35 @@ function HomePage() {
   );
 }
 
+// Validates the :lang URL segment; unknown languages fall back to the PT home.
+function LangGuard() {
+  const { lang } = useParams();
+  if (lang !== 'es' && lang !== 'en') return <Navigate to="/" replace />;
+  return <Outlet />;
+}
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/termos-de-uso" element={<TermosDeUso />} />
-          <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
-        </Routes>
-        <Footer />
-        <WhatsAppFloat />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen">
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/termos-de-uso" element={<TermosDeUso />} />
+            <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/:lang" element={<LangGuard />}>
+              <Route index element={<HomePage />} />
+              <Route path="termos-de-uso" element={<TermosDeUso />} />
+              <Route path="politica-privacidade" element={<PoliticaPrivacidade />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+          <Footer />
+          <WhatsAppFloat />
+        </div>
+      </LanguageProvider>
     </Router>
   );
 }
