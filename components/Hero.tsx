@@ -1,7 +1,10 @@
-import { WHATSAPP_LINK } from '../constants';
 import { ArrowRight, Ear, Mic } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Hero: React.FC = () => {
+  const { t, whatsappLink } = useLang();
+
   return (
     <section id="home" className="relative bg-secondary pt-16 lg:pt-32 pb-0 overflow-hidden">
       <div
@@ -30,32 +33,34 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative">
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 items-end">
           <div className="space-y-8 text-center lg:text-left order-2 lg:order-1 lg:self-center lg:-mt-12">
-            <span className="section-subtitle !text-left">Bem-vindo à sua nova voz</span>
+            <span className="section-subtitle !text-left">{t.hero.eyebrow}</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight">
-              Fonoaudiologia de Excelência para Todas as Idades
+              {t.hero.title}
             </h1>
             <p className="text-lg text-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Transforme sua comunicação e qualidade de vida com tratamentos personalizados e baseados em evidências científicas.
+              {t.hero.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a
-                href={WHATSAPP_LINK}
+                href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-primary text-white px-5 py-2 rounded-full text-sm font-medium transition-all hover:bg-primary-dark shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
-                aria-label="Agendar avaliação pelo WhatsApp"
+                aria-label={t.hero.ctaPrimaryAria}
               >
-                Agende sua Avaliação
+                {t.hero.ctaPrimary}
                 <ArrowRight className="inline-block ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#especialidades"
                 className="inline-flex items-center justify-center border-2 border-primary text-primary px-5 py-2 rounded-full text-sm font-medium transition-all hover:bg-primary hover:text-white"
               >
-                Nossos Serviços
+                {t.hero.ctaSecondary}
               </a>
             </div>
+
+            <LanguageSwitcher variant="pill" />
           </div>
 
           <div className="relative order-1 lg:order-2">
