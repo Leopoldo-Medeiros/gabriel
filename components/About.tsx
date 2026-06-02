@@ -1,53 +1,52 @@
-import { FC } from 'react';
-import { SPECIALTIES, WHATSAPP_LINK } from '../constants';
+import { SPECIALTIES } from '../constants';
 import { User } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
-const About: FC = () => {
+const About: React.FC = () => {
+  const { t, whatsappLink } = useLang();
+
   return (
     <>
       <section id="especialidades" className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="section-subtitle">Nossas Especialidades</span>
-            <h2 className="section-title">Soluções Completas em Fonoaudiologia</h2>
-            <p className="text-muted text-lg mt-4">
-              Oferecemos tratamentos personalizados para atender às necessidades específicas de cada paciente, desde crianças até idosos.
-            </p>
+            <span className="section-subtitle">{t.specialtiesSection.eyebrow}</span>
+            <h2 className="section-title">{t.specialtiesSection.title}</h2>
+            <p className="text-muted text-lg mt-4">{t.specialtiesSection.subtitle}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {SPECIALTIES.map((specialty) => (
-              <article
-                key={specialty.title}
-                className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-              >
-                <img
-                  src={specialty.image}
-                  alt={specialty.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" aria-hidden="true"></div>
-                <div className="relative h-full p-6 flex flex-col justify-end min-h-[300px]">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {specialty.title}
-                  </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-4">
-                    {specialty.description}
-                  </p>
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent font-semibold text-sm hover:underline inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                    aria-label={`Saiba mais sobre ${specialty.title} pelo WhatsApp`}
-                  >
-                    Saiba mais <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </article>
-            ))}
+            {SPECIALTIES.map((specialty) => {
+              const copy = t.specialties[specialty.key];
+              return (
+                <article
+                  key={specialty.key}
+                  className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                >
+                  <img
+                    src={specialty.image}
+                    alt={copy.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" aria-hidden="true"></div>
+                  <div className="relative h-full p-6 flex flex-col justify-end min-h-[300px]">
+                    <h3 className="text-xl font-bold text-white mb-2">{copy.title}</h3>
+                    <p className="text-white/80 text-sm leading-relaxed mb-4">{copy.description}</p>
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent font-semibold text-sm hover:underline inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                      aria-label={t.specialtiesSection.learnMoreAria.replace('{title}', copy.title)}
+                    >
+                      {t.specialtiesSection.learnMore} <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -89,13 +88,9 @@ const About: FC = () => {
             </div>
 
             <div className="lg:-ml-12 xl:-ml-20">
-              <span className="section-subtitle !text-left">Conheça o Especialista</span>
-              <h2 className="text-4xl font-bold text-dark mb-6 leading-tight">
-                Dedicação e Experiência ao Seu Alcance
-              </h2>
-              <p className="text-muted text-lg leading-relaxed mb-6">
-                Com anos de experiência clínica, o Dr. Gabriel Lechenakoski combina conhecimento técnico avançado com uma abordagem humanizada.
-              </p>
+              <span className="section-subtitle !text-left">{t.about.eyebrow}</span>
+              <h2 className="text-4xl font-bold text-dark mb-6 leading-tight">{t.about.title}</h2>
+              <p className="text-muted text-lg leading-relaxed mb-6">{t.about.paragraph}</p>
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4">
@@ -103,21 +98,21 @@ const About: FC = () => {
                     <User size={24} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-dark text-lg">Atendimento Personalizado</h3>
-                    <p className="text-muted text-sm">Cada paciente é único, e nossos planos de tratamento refletem essa individualidade.</p>
+                    <h3 className="font-bold text-dark text-lg">{t.about.featureTitle}</h3>
+                    <p className="text-muted text-sm">{t.about.featureDesc}</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-8 border-t border-gray-200 pt-8">
                 <div>
-                  <span className="block text-4xl font-bold text-primary leading-none">Anos</span>
-                  <span className="text-sm text-muted font-medium">de Experiência</span>
+                  <span className="block text-4xl font-bold text-primary leading-none">{t.about.statYearsValue}</span>
+                  <span className="text-sm text-muted font-medium">{t.about.statYearsLabel}</span>
                 </div>
                 <div className="w-px h-12 bg-gray-200" aria-hidden="true"></div>
                 <div>
-                  <span className="block text-4xl font-bold text-primary leading-none">Centenas</span>
-                  <span className="text-sm text-muted font-medium">de Pacientes</span>
+                  <span className="block text-4xl font-bold text-primary leading-none">{t.about.statPatientsValue}</span>
+                  <span className="text-sm text-muted font-medium">{t.about.statPatientsLabel}</span>
                 </div>
               </div>
             </div>

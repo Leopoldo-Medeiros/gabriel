@@ -1,12 +1,14 @@
-import { WHATSAPP_LINK } from '../constants';
+import { useLang } from '../i18n/LanguageContext';
 
 const WhatsAppFloat: React.FC = () => {
+  const { whatsappLink, t } = useLang();
+
   return (
     <a
-      href={WHATSAPP_LINK}
+      href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Conversar pelo WhatsApp"
+      aria-label={t.whatsapp.floatAria}
       className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center"
     >
       <span

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Clock, MapPin } from 'lucide-react';
-import { WHATSAPP_LINK, CONTACT_INFO } from '../constants';
+import { CONTACT_INFO } from '../constants';
+import { useLang } from '../i18n/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { t, localePath, whatsappLink } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -28,7 +31,9 @@ const Header: React.FC = () => {
             </div>
             <div className="flex items-center gap-3">
               <Clock size={16} className="text-accent" />
-              <span className="opacity-90">{CONTACT_INFO.hours.weekday}</span>
+              <span className="opacity-90">
+                {t.schedule.weekdays}: {t.schedule.weekdayHours}
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -44,23 +49,26 @@ const Header: React.FC = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center gap-4">
-          <Link to="/" className="flex flex-col group" aria-label="Gabriel Lechenakoski - Página inicial">
+          <Link to={localePath('')} className="flex flex-col group" aria-label={t.header.logoAria}>
             <span className="text-xl sm:text-2xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
               Gabriel Lechenakoski
             </span>
             <span className="text-[10px] sm:text-xs text-muted uppercase tracking-wide">
-              Fonoaudiologia
+              {t.header.brandSubtitle}
             </span>
           </Link>
 
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-primary text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all hover:bg-primary-dark hover:shadow-lg whitespace-nowrap"
-          >
-            Agendar Consulta
-          </a>
+          <div className="flex items-center gap-3 sm:gap-5">
+            <LanguageSwitcher variant="compact" />
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-primary text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all hover:bg-primary-dark hover:shadow-lg whitespace-nowrap"
+            >
+              {t.header.ctaSchedule}
+            </a>
+          </div>
         </div>
       </header>
     </>
